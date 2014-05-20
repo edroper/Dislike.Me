@@ -227,6 +227,7 @@
     <Content Include="Content\zocial-regular-webfont.eot" />
     <Content Include="Content\zocial-regular-webfont.ttf" />
     <Content Include="Content\zocial-regular-webfont.woff" />
+    <Content Include="layout.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
