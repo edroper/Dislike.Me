@@ -10,6 +10,10 @@ How To Use:
 
 Create a new Facebook application, obtain a client id and secret, and add your variables wherever you see a PrivateSettings class respectively.
 
+Facebook SDK handles login. Due to paging ridiculousness & the facebook feed, just used JSON.net and raw WebRequest calls to get the 'next' pages from the Graph API. 
+
+Uses jQuery to poll status while a background thread collects JSON data, aggregates, and creates statistics. Objects then stored in cache and user is forwarded to results page. 
+
 Dependencies:
 
 JSON.net 
@@ -17,3 +21,5 @@ JSON.net
 Bootstrap 3
 
 jQuery
+
+Facebook C# SDK
