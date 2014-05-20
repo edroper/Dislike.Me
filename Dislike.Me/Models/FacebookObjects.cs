@@ -1,60 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace Dislike.Me.Models
 {
-    public class userPost
+    public class UserPost
     {
-        public string id;
-        public string message;
-        public string postDate;
-        public List<Like> likes;
+        public string Id;
+        public List<Like> Likes;
+        public string Message;
+        public string PostDate;
 
-        public userPost()
+        public UserPost()
         {
-            likes = new List<Like>();
+            Likes = new List<Like>();
         }
-
     }
 
     public class DailyPosts
     {
-        public string postDate;
-        public List<userPost> userPosts;
+        public string PostDate;
+        public List<UserPost> UserPosts;
+
         public DailyPosts()
         {
-            userPosts = new List<userPost>();
+            UserPosts = new List<UserPost>();
         }
     }
 
     public class Like
     {
         public string UserName;
-        public string uid;
-
+        public string Uid;
     }
 
     public class User
     {
         public string UserName;
-        public string uid;
-        public int likes;
-
+        public int Likes;
+        public string Uid;
     }
-
-
 
     public class FriendsList
     {
-
-       public Dictionary<string, string> Friends;
+        public Dictionary<string, string> Friends;
 
         public FriendsList()
         {
-            Friends = new Dictionary<string,string>();
+            Friends = new Dictionary<string, string>();
         }
-
     }
 }
