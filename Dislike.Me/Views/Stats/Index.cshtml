@@ -1,0 +1,82 @@
+﻿@{
+    //ViewBag.Title = "Error";
+}
+
+
+
+
+<script type="text/javascript">
+
+function updateMonitor(taskId, status) {
+  $("#" + taskId).html(status);
+}
+
+$(document).ready( function () {
+      
+
+    $.get("/Stats/GetData",  function (taskId) {
+
+ 
+      // Init monitors
+      $("#monitors").append($("<h2 id='" + taskId + "'/>"));
+      updateMonitor(taskId, "Started");
+
+      // Periodically update monitors
+      var intervalId = setInterval(function () {
+        $.post("/Stats/Progress", { id: taskId }, function (progress) {
+          if (progress == "Done!") {
+              updateMonitor(taskId, progress);
+              window.location.replace("/Stats/ShowResults");
+          clearInterval(intervalId);
+          } else {
+            updateMonitor(taskId, progress );
+          }
+        });
+      }, 100);
+    });
+
+});
+</script>
+    
+    
+
+<div id="wrap">
+
+    
+    <div id="headerwrap">
+        <div class="container">
+            <div class="row centered">
+                <div class="col-lg-12">
+                    <h1>Dislike.Me</h1>
+                    <br>
+                </div>
+               
+
+            </div>
+        </div> <!--/ .container -->
+    </div><!--/ #headerwrap -->
+
+    <div id="runningbody">
+        <div class="container">
+            <div class="row centered">
+                <div class="col-md-8 col-md-offset-2">
+
+                  <h1>Ok, Please wait..</h1>
+                    <br />
+                   <p>Fetching your data right now...</p>
+
+                    <div id="monitors"><h1></h1></div>
+
+                </div>
+               
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</div>
+

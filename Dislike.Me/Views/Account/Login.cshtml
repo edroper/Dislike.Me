@@ -1,0 +1,51 @@
+﻿@{
+    //ViewBag.Title = "Login";
+}
+
+<div id="wrap">
+  
+
+    <div id="headerwrap">
+        <div class="container">
+            <div class="row centered">
+                <div class="col-lg-12">
+                    <h1>Dislike.Me</h1>
+                    <br>
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <p><b>What It Is:</b> A completely useless yet fun way to get data metrics from facebook, and possibly ruin friendships!</p>
+                    <p><b>How It Works:</b> We pull all your status updates from the last year until present time. We then calculate all the likes from your friends who have liked at least 2 of your posts, and sort from least amount to most .</p>
+                </div>
+
+
+            </div>
+        </div> <!--/ .container -->
+    </div><!--/ #headerwrap -->
+
+    <div id="loginbody">
+        <div class="container">
+            <div class="row centered">
+                <div class="col-md-6 col-md-offset-3">
+                   
+                    <p>None of your data is saved, only Facebook will know your login and password. Your data will only be stored as long as you are using the application.</p>
+                    <br />
+                    <p>To get started, just click "Login with Facebook" below, you'll be prompted for your login & password by Facebook, and away we'll go!</p>
+                </div>
+               <div class="col-md-6 col-md-offset-3">
+                   <br />
+                    @Html.ActionLink("Login with Facebook", "Facebook", null, null, new { @class = "zocial facebook" })
+                </div>
+          
+
+            </div>
+
+        </div>
+        
+ 
+
+  </div>
+
+</div>
+
+
+    

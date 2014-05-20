@@ -1,0 +1,189 @@
+﻿@model Dislike.Me.Models.Stats
+
+
+<div id="wrap">
+
+
+    <div id="headerwrap">
+        <div class="container">
+            <div class="row centered">
+                <div class="col-lg-12">
+                    <h1>Dislike.Me</h1>
+                    <br>
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <p><b>What It Is:</b> A completely useless yet fun way to get data metrics from facebook, and possibly ruin friendships!</p>
+                    <p><b>How It Works:</b> We pull all your status updates from the last year until present time. We then calculate all the likes from your friends who have liked at least 2 of your posts, and sort from least amount to most .</p>
+                </div>
+
+
+            </div>
+        </div> <!--/ .container -->
+    </div><!--/ #headerwrap -->
+
+    <div id="topusers">
+        <div class="container">
+            <div class="row centered">
+                <div class="col-md-10 col-md-offset-1">
+
+                    <h1>The (Completely Unscientific) Results!</h1>
+
+
+                </div>
+                               
+            </div>
+
+            <div class="row centered">
+                <!--<div class="col-sm-6 col-md-3 col-md-offset-3 col-lg-3 col-lg-offset-3 " style=" border-right: 1px dashed #000000; ">-->
+                    <div class="col-sm-6 col-md-3 col-md-offset-3 col-lg-3 col-lg-offset-3 " >
+                        <h2>Who Likes Your<br />Posts the Least</h2>
+                        <img class="facebook" src="http://graph.facebook.com/@Html.DisplayFor(m => Model.LeastLikedUser.uid)/picture/?type=large">
+                        <p>@Html.DisplayFor(m => Model.LeastLikedUser.UserName) </p>
+                        <p class="count">@Html.DisplayFor(m => Model.LeastLikedUser.likes) Posts</p>
+                    </div>
+
+
+
+                    <div class="col-sm-6 col-lg-3 col-md-3">
+                        <h2>Who Likes Your <br />Posts the Most</h2>
+                        <img class="facebook" src="http://graph.facebook.com/@Html.DisplayFor(m => Model.MostLikedUser.uid)/picture/?type=large">
+                        <p>  @Html.DisplayFor(m => Model.MostLikedUser.UserName)</p>
+                        <p class="count">  @Html.DisplayFor(m => Model.MostLikedUser.likes) Posts</p>
+                    </div>
+
+                </div>         
+        </div>
+      </div>
+
+
+    <div id="bottomusers">
+        <div class="container">
+            <div class="row centered">
+                <div class="col-md-10 col-md-offset-1">
+
+                    <h1>Top @Html.DisplayFor(m => Model.Top4DislikedUsers.Count) Friends Who Have Also Liked Your Posts the Least:</h1>
+
+
+                </div>
+
+            </div>
+
+            <div class="row centered">
+                <!--<div class="col-sm-6 col-md-3 col-md-offset-3 col-lg-3 col-lg-offset-3 " style=" border-right: 1px dashed #000000; ">-->
+               
+                @foreach(var user in Model.Top4DislikedUsers)
+                {
+                    <div class="col-sm-3 col-md-3 col-lg-3 ">
+                   
+                    <img class="facebook" src="http://graph.facebook.com/@Html.DisplayFor(m => user.uid)/picture/?type=large">
+                    <p>@Html.DisplayFor(m => user.UserName) </p>
+                    <p class="count">@Html.DisplayFor(m => user.likes) Posts</p>
+                </div>
+
+                    
+                }
+
+
+               
+
+
+            </div>
+        </div>
+    </div>
+
+    <div id="bestquote">
+        <div class="container">
+            <div class="row centered">
+                <div class="col-md-10 col-md-offset-1">
+
+                    <h1>Your Most Popular Post:</h1>
+
+
+                </div>
+
+            </div>
+
+            
+
+                <div class="row ">
+                   
+                    <div class="col-sm-8 col-md-8 col-lg-8 col-lg-offset-2 col-sm-offset-2 col-md-offset-2">
+
+
+                        <p class="bigquoteleft">“</p>
+                        <p class="best"> @Html.DisplayFor(m => Model.MostPopularPost.message) </p>
+                        <br />
+                        <p class="bigquoteright">”</p>
+
+
+                    </div>
+                </div>
+
+            <div class="row ">
+
+                <div class="col-sm-8 col-md-8 col-lg-8 col-lg-offset-2 col-sm-offset-2 col-md-offset-2">
+
+
+                   <h2>@(DateTime.Parse(Model.MostPopularPost.postDate).ToString("MMM dd, yyyy"))  - @Html.DisplayFor(m => Model.MostPopularPost.likes.Count) Likes</h2>
+                 
+
+                </div>
+            </div>
+
+
+    </div>
+
+    </div>
+
+
+    <div id="worstquote">
+        <div class="container">
+            <div class="row centered">
+                <div class="col-md-10 col-md-offset-1">
+
+                    <h1>Your Least Popular Post:</h1>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="row ">
+
+                <div class="col-sm-8 col-md-8 col-lg-8 col-lg-offset-2 col-sm-offset-2 col-md-offset-2">
+
+
+                    <p class="bigquoteleft">“</p>
+                    <p class="best"> @Html.DisplayFor(m => Model.LeastPopularPost.message) </p>
+                    <br />
+                    <p class="bigquoteright">”</p>
+
+
+                </div>
+            </div>
+
+            <div class="row ">
+
+                <div class="col-sm-8 col-md-8 col-lg-8 col-lg-offset-2 col-sm-offset-2 col-md-offset-2">
+
+
+                    <h2>@(DateTime.Parse(Model.LeastPopularPost.postDate).ToString("MMM dd, yyyy"))  - @Html.DisplayFor(m => Model.LeastPopularPost.likes.Count) Likes</h2>
+
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+

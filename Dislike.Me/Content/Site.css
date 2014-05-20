@@ -1,0 +1,421 @@
+﻿html,body {
+    font-size: 14pt;
+    font-family: 'Rokkitt', serif;
+    color: #432F28;
+    background-color: #FFF7E5;
+    line-height: 140%;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -120px;
+  /* Pad bottom by footer height */
+  padding: 0 0 120px;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.centered {
+    text-align: center;
+}
+
+#loginbody {
+
+    padding:60px;
+}
+
+#errorbody {
+
+    padding:60px;
+}
+
+#errorbody h1{
+
+   color:#8D9FC0;
+   font-size:65pt;
+   font-family:"Pacifico",sans-serif;
+   text-shadow:2px 2px #FFF7E5;
+}
+
+#runningbody h1{
+
+    
+   color:#8D9FC0;
+   font-size:45pt;
+   font-family:"Pacifico",sans-serif;
+   text-shadow:2px 2px #FFF7E5;
+}
+
+
+#runningbody h2{
+
+   font-family: 'Rokkitt', serif;
+   font-size:25pt;
+ 
+}
+
+
+#runningbody {
+
+     padding:60px;
+}
+
+#headerwrap {
+	background-color: #432F28;
+   
+   padding:30px;
+
+   
+   
+}
+
+#headerwrap h1{
+
+   color:#8D9FC0;
+   font-size:75pt;
+   font-family:"Pacifico",sans-serif;
+   text-shadow:2px 2px #FFF7E5;
+}
+
+#headerwrap p{
+
+   color:#FFF7E5;
+   font-size:14pt;
+   font-family:"Roboto",serif;
+   font-style:italic;
+}
+
+#headerwrap b{
+    color:#8D9FC0;
+}
+
+
+#footerwrap {
+	background-color: #000000;
+     height: 120px;
+    padding-top:40px;
+ 
+  
+  
+}
+
+#footerwrap p {
+    color: #FFF7E5;
+    font-size: 14pt;
+}
+  
+
+#bottomusers{
+
+    background-color:#D2C1A4;
+    padding:30px;
+}
+
+#bottomusers h1{
+
+    font-family: 'Rokkitt', serif;
+   font-size:24pt;
+   color:#FFF7E5;
+   font-weight:bold;
+   padding-bottom:25px;
+}
+
+#bottomusers h2{
+
+    font-family: 'Rokkitt', serif;
+   font-size:16pt;
+   font-weight:bold;
+   color:#231F20;
+
+}
+
+#bottomusers p{
+
+   font-family: 'Rokkitt', serif;
+   font-size:14pt;
+   color:#231F20;
+  margin-bottom:-5px;
+}
+
+#bottomusers p.count {
+
+    font-family:'Roboto',sans-serif;
+    font-size:12pt;
+    font-weight:bold;
+    font-style:italic;
+    color:#8D9FC0;
+     margin-bottom:0px;
+     padding-bottom:20px;
+  
+}
+
+
+
+#topusers{
+    padding:10px;
+
+}
+
+#topusers h1{
+
+    font-family: 'Rokkitt', serif;
+   font-size:24pt;
+   color:#8D9FC0;
+   font-weight:bold;
+
+}
+
+#topusers h2{
+
+    font-family: 'Rokkitt', serif;
+   font-size:16pt;
+   font-weight:bold;
+   color:#231F20;
+
+}
+
+#topusers p{
+
+   font-family: 'Rokkitt', serif;
+   font-size:14pt;
+   color:#231F20;
+  margin-bottom:-5px;
+}
+
+#topusers p.count {
+
+    font-family:'Roboto',sans-serif;
+    font-size:12pt;
+    font-weight:bold;
+    font-style:italic;
+    color:#D2C1A4;
+     margin-bottom:0px;
+     padding-bottom:20px;
+  
+}
+
+img.facebook{
+
+    width: 100px!important;
+    height: 100px!important;
+    border-radius: 50%;
+    border: none;
+    box-shadow: none;
+    padding-bottom:10px;
+}
+
+
+
+
+#bestquote{
+
+    background-color:#8D9FC0;
+    padding:30px;
+}
+
+#bestquote h1{
+
+    font-family: 'Rokkitt', serif;
+   font-size:24pt;
+   color:#FFF7E5;
+   font-weight:bold;
+   padding-bottom:50px;
+  
+}
+
+#bestquote h2{
+
+    font-family: 'Rokkitt', serif;
+   font-size:21pt;
+   font-weight:bold;
+   color:#FFF7E5;
+   text-align:right;
+}
+
+#bestquote p.best{
+
+   font-family: 'Roboto', sans-serif;
+   font-style:italic;
+   font-size:21pt;
+   color:#231F20;
+   text-align:center;
+
+ 
+}
+
+#bestquote p.count {
+
+    font-family:'Roboto',sans-serif;
+    font-size:12pt;
+    font-weight:bold;
+    font-style:italic;
+    color:#8D9FC0;
+     margin-bottom:0px;
+     padding-bottom:20px;
+  
+}
+
+#bestquote p.bigquoteleft {
+
+    font-family:'Rokkitt',sans-serif;
+    font-size:120pt;
+    font-weight:bold;
+   text-align:left;
+    color:#D2C1A4;
+    margin-bottom:-15px;
+    
+}
+
+#bestquote p.bigquoteright {
+
+    font-family:'Rokkitt',sans-serif;
+    font-size:120pt;
+    font-weight:bold;
+   text-align:right;
+    color:#D2C1A4;
+    padding-top:25px;
+    
+}
+
+
+
+
+#worstquote{
+
+    background-color:#432F28;
+    padding:30px;
+}
+
+#worstquote h1{
+
+    font-family: 'Rokkitt', serif;
+   font-size:21pt;
+   color:#D2C1A4;
+   font-weight:bold;
+   padding-bottom:50px;
+  
+}
+
+#worstquote h2{
+
+       font-family: 'Rokkitt', serif;
+   font-size:21pt;
+   font-weight:bold;
+   color:#D2C1A4;
+
+    text-align:right;
+
+}
+
+#worstquote p.best{
+
+   font-family: 'Roboto', sans-serif;
+   font-style:italic;
+   font-size:21pt;
+   color:#8D9FC0;
+   text-align:center;
+
+ 
+}
+
+#worstquote p.count {
+
+    font-family:'Roboto',sans-serif;
+    font-size:12pt;
+    font-weight:bold;
+    font-style:italic;
+    color:#8D9FC0;
+     margin-bottom:0px;
+     padding-bottom:20px;
+  
+}
+
+#worstquote p.bigquoteleft {
+
+    font-family:'Rokkitt',sans-serif;
+    font-size:120pt;
+    font-weight:bold;
+   text-align:left;
+    color:#FFF7E5;
+    margin-bottom:-15px;
+    
+}
+
+#worstquote p.bigquoteright {
+
+    font-family:'Rokkitt',sans-serif;
+    font-size:120pt;
+    font-weight:bold;
+   text-align:right;
+    color:#FFF7E5;
+    padding-top:25px;
+    
+}
+
+
+
+@media only screen and (min-width : 320px) and (max-width : 768px) {
+    #headerwrap h1 {
+        font-size:45pt;
+    }
+}
