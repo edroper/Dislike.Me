@@ -24,5 +24,7 @@ jQuery
 
 Facebook C# SDK
 
+Copyright : Creative Commons Attribution-NonCommercial
+http://creativecommons.org/licenses/by-nc/3.0/us/
 
 ![alt tag](https://raw.githubusercontent.com/edroper/Dislike.Me/master/Dislike.Me/layout.jpg)
