@@ -27,12 +27,15 @@ namespace Dislike.Me.Models
 
             var likesByFriendsStats = new Dictionary<string, int>();
             var postLikeCountStats = new Dictionary<string, int>();
-            var likesByDayStats = new SortedDictionary<DateTime, int>();
+            var likesByDayStats = new SortedDictionary<DateTime, int>(); // not currently in use
             var postLikesByDayStats = new SortedDictionary<DateTime, Dictionary<string, int>>();
 
+            //loop on posts obtained from the facebook calls
             foreach (userPost post in up)
             {
                 string shortdate = post.postDate;
+
+                //only counting posts with likes
                 if (post.likes.Count != 0)
                 {
                     postLikeCountStats.Add(post.id, 0);

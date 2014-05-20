@@ -18,11 +18,13 @@ namespace Dislike.Me.Controllers
     public class StatsController : Controller
     {
 
+        //status container for the spawned threads. contains a unique guid and a message indicating current process
+        //while polling facebook graph api over and over.
         private static IDictionary<Guid, string> tasks = new Dictionary<Guid, string>();
 
-        //
-        // GET: /Stats/
-
+  
+        //forwarded to after successful facebook login
+        //present a jquery script which then calls GetData and monitors the loop
         public ActionResult Index()
         {
           
@@ -35,24 +37,33 @@ namespace Dislike.Me.Controllers
             return View();
         }
 
+
+        //called by jQuery
         public ActionResult GetData()
         {
             var taskId = Guid.NewGuid();
             tasks.Add(taskId, "Starting...");
 
+            //something bad happened, abort
             if (string.IsNullOrEmpty(Session["AccessToken"] as string))
             {
                 return RedirectToAction("Error", "Stats");
             }
 
+            //assign our session to a variable, since session state doesnt exist in spawned threads
             string AccessToken = Session["AccessToken"].ToString();
 
             Task.Factory.StartNew(() =>
             {
                 
+                //our raw list of posts to be summarized soon
                 List<userPost> userposts = new List<userPost>();
+
+                //facebook is dumb, and won't let you grab a users entire friends list anymore, so we gotta build our own and assume
+                //friendship
                 FriendsList friends = new FriendsList();
 
+                //go get the data
                 GetFacebookData(taskId, AccessToken, userposts, friends);
 
                 tasks[taskId] = "Generating Statistics..";
@@ -65,6 +76,7 @@ namespace Dislike.Me.Controllers
                 {
                     //insert stats object into cache for later retrieval, since it's being created by a stateless / contextless thread
                     //AccessToken is unique per user, so no risk of a different user getting it.
+                    //this could probably be replace with SQL/ORM, but benchmarking should be done to see if its any better or worse.
                     HttpRuntime.Cache.Insert(AccessToken, stats, null, DateTime.UtcNow.AddMinutes(5), Cache.NoSlidingExpiration);
                 }
                 catch (Exception)
@@ -84,7 +96,7 @@ namespace Dislike.Me.Controllers
             bool pullingData = true;
             bool hasData = false;
 
-
+            //using raw JSON, since Facebook Client SDK doesn't handle pagination. Probably quicker to use JSON.net anyway.
             string jsonURL = @"https://graph.facebook.com/me/posts/?limit=50&access_token=" + AccessToken;
 
             //keep looping while 'next' links are present, or until empty or an error
@@ -140,6 +152,7 @@ namespace Dislike.Me.Controllers
                 }
                 catch (RuntimeBinderException)
                 {
+                    //probably a result of no more data
                     pullingData = false;
                 }
 
@@ -153,6 +166,9 @@ namespace Dislike.Me.Controllers
                 }
                 catch (RuntimeBinderException)
                 {
+                 
+                    //we probably hit the end of the stream for X number of days of data, so no paging links are
+                    //returned. or something bad happened
                     pullingData = false;
                 }
 
@@ -161,11 +177,13 @@ namespace Dislike.Me.Controllers
         }
 
 
+        //called by jQuery to see where the processing is at
         public ActionResult Progress(Guid id)
         {
             return Json(tasks.Keys.Contains(id) ? tasks[id] : "Done!");
         }
 
+        //our collection and analysis is done, grab the object out of cache and present the results.
         public ActionResult ShowResults()
         {
             if (string.IsNullOrEmpty(Session["AccessToken"] as string))
