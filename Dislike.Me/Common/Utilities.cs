@@ -10,7 +10,7 @@ namespace Dislike.Me.Common
     public static class Utilities
     {
 
-        public static string GetJSONFromWeb(string url)
+        public static string GetJsonFromWeb(string url)
         {
             string requestResult;
 

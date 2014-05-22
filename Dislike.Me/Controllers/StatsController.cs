@@ -89,7 +89,7 @@ namespace Dislike.Me.Controllers
             //keep looping while 'next' links are present, or until empty or an error
             while (pullingData)
             {
-                string jsonResult = Utilities.GetJSONFromWeb(jsonUrl);
+                string jsonResult = Utilities.GetJsonFromWeb(jsonUrl);
                 dynamic dynObj = JsonConvert.DeserializeObject(jsonResult);
 
                 tasks[taskId] = "Getting more data...";
@@ -121,12 +121,12 @@ namespace Dislike.Me.Controllers
                             {
                                 foreach (var likes in data.likes.data)
                                 {
-                                    var _like = new Like();
-                                    _like.Uid = likes.id;
-                                    _like.UserName = likes.name;
-                                    p.Likes.Add(_like);
+                                    var like = new Like();
+                                    like.Uid = likes.id;
+                                    like.UserName = likes.name;
+                                    p.Likes.Add(like);
 
-                                    friends.Friends[_like.Uid] = _like.UserName;
+                                    friends.Friends[like.Uid] = like.UserName;
                                 }
                             }
                             up.Add(p);
