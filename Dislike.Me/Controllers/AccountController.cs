@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using Dislike.Me.Private;
 using Facebook;
-using Dislike.Me.Private;
+using System;
+using System.Web.Mvc;
 
 namespace Dislike.Me.Controllers
 {
@@ -45,31 +42,31 @@ namespace Dislike.Me.Controllers
             var fb = new FacebookClient();
             string accessToken;
 
-            
-            try {
-                    dynamic result = fb.Post("oauth/access_token", new
-                    {
-                        client_id = PrivateSettings.client_id,
-                        client_secret = PrivateSettings.client_secret,
-                        redirect_uri = RedirectUri.AbsoluteUri,
-                        code = code
-                    });
+            try
+            {
+                dynamic result = fb.Post("oauth/access_token", new
+                {
+                    client_id = PrivateSettings.client_id,
+                    client_secret = PrivateSettings.client_secret,
+                    redirect_uri = RedirectUri.AbsoluteUri,
+                    code = code
+                });
 
-                    accessToken = result.access_token;
+                accessToken = result.access_token;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return RedirectToAction("Error", "Account");
             }
-             
-            if(accessToken==null)
+
+            if (accessToken == null)
             {
-               return RedirectToAction("Error", "Account");
+                return RedirectToAction("Error", "Account");
             }
             else
             {
                 Session["AccessToken"] = accessToken;
-            }                            
+            }
 
             return RedirectToAction("Index", "Stats");
         }
